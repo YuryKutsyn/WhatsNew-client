@@ -1,0 +1,1 @@
+export const pathnameForMenuBar = pathname => pathname === '/' ? 'home' : pathname.substr(1)

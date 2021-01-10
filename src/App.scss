@@ -1,0 +1,20 @@
+.homePage {
+  &__title {
+    display: block !important;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+}
+
+.form {
+  &__container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.ui.teal.button:focus,
+.ui.teal.buttons .button:focus {
+  background-color: #00b5ad;
+}
