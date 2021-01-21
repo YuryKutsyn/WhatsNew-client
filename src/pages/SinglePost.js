@@ -46,14 +46,21 @@ const SinglePost = (props) => {
         postMarkup = (
             <Grid>
                 <Grid.Row>
-                    <Grid.Column width={3}>
+                    <Grid.Column 
+                    width={3}
+                    mobile={4}
+                    style={{ marginBottom: 12 }}
+                    >
                         <Image
                             src='https://petadvisor.in.ua/blog/wp-content/uploads/2019/09/mops-1.jpg'
-                            size='small'
                             float='right'
                         />
                     </Grid.Column>
-                    <Grid.Column width={13}>
+                    <Grid.Column 
+                    width={13}
+                    largeScreen={12}
+                    mobile={16}
+                    >
                         <Card fluid>
                             <Card.Content>
                                 <Card.Header>{ username }</Card.Header>

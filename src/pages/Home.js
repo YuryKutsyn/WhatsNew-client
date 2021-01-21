@@ -18,13 +18,18 @@ const Home = () => {
     const posts = data && data.getPosts
 
     return (
-        <Grid columns={3}>
+        <Grid columns={2}>
                 <Grid.Row className='homePage__title'>
                     <h1>Recent Posts</h1>
                 </Grid.Row>
             <Grid.Row>
                 { user && (
-                    <Grid.Column>
+                    <Grid.Column
+                        mobile={16}
+                        largeScreen={8}
+                        computer={8}
+                        widescreen={8}
+                        >
                         <PostForm/>
                     </Grid.Column>
                 )}
@@ -37,7 +42,15 @@ const Home = () => {
                 >
                     { posts &&
                     posts.map(post => (
-                    <Grid.Column key={post.id} style={{ marginBottom: 20 }} >
+                    <Grid.Column
+                        mobile={16}
+                        largeScreen={8}
+                        computer={8}
+                        widescreen={8}
+                        stretched={true}
+                        key={post.id} 
+                        style={{ marginTop: 20 }}
+                        >
                         <PostCard post={post} />
                     </Grid.Column> ))}
                 </Transition.Group>
