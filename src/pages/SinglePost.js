@@ -1,5 +1,4 @@
 import { useContext, useState, useRef } from 'react'
-import gql from "graphql-tag/lib/graphql-tag.umd";
 import { useMutation, useQuery } from '@apollo/react-hooks'
 import { Grid, Card, Button, Form, Icon, Label, Image, Transition } from "semantic-ui-react";
 import moment from "moment";
@@ -7,7 +6,8 @@ import moment from "moment";
 import { AuthContext } from "context/auth";
 import LikeButton from "components/LikeButton";
 import DeleteButton from "components/DeleteButton";
-import {MyPopup} from "util/MyPopup";
+import { MyPopup } from "util/MyPopup";
+import { GET_POST_QUERY, SUBMIT_COMMENT_MUTATION } from 'util/graphql'
 
 
 const SinglePost = (props) => {
@@ -152,33 +152,5 @@ const SinglePost = (props) => {
 
     return postMarkup
 };
-
-const SUBMIT_COMMENT_MUTATION = gql`
-    mutation($postId: String!, $body: String!){
-        createComment(postId: $postId, body: $body){
-            id
-            comments{
-                id body createdAt username
-            }
-            commentCount
-        }
-    }
-`
-
-const GET_POST_QUERY = gql`
-    query($postId: ID!){
-        getPost(postId: $postId){
-            id username body createdAt
-            likes{
-                username
-            }
-            likeCount
-            comments{
-                id username createdAt body
-            }
-            commentCount
-        }
-    }
-`
 
 export default SinglePost;
