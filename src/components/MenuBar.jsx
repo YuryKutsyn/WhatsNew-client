@@ -15,17 +15,9 @@ const MenuBar = () => {
         <Menu pointing secondary size='massive' color='teal'>
             <Menu.Item
                 name={ user.username }
-                active={ activeItem === user.username || activeItem === 'home' }
-                onClick={ handleItemClick }
+                active
                 as={ Link }
                 to='/'
-            />
-            <Menu.Item
-                name='settings'
-                active={ activeItem === 'settings' }
-                onClick={ handleItemClick }
-                as={ Link }
-                to='/settings'
             />
             <Menu.Menu position='right'>
                 <Menu.Item

@@ -1,13 +1,7 @@
-import { useState, useContext } from 'react'
-import { Button, Divider, Form, Grid } from 'semantic-ui-react'
-import gql from "graphql-tag";
-import { useMutation } from '@apollo/react-hooks'
+import { Grid } from 'semantic-ui-react'
 
-import { AuthContext } from "context/auth";
-import { useForm } from 'util/hooks'
 
 const Settings = props => {
-    const { user } = useContext(AuthContext)
     
     return (
         <Grid columns={2}>
