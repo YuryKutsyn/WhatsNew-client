@@ -10,7 +10,7 @@ const MenuBar = () => {
     const [ activeItem, setActiveItem ] = useState( pathnameForMenuBar( window.location.pathname ))
 
     const handleItemClick = (_, { name }) => setActiveItem( name )
-    console.log(activeItem)
+
     const menuBar = user ? (
         <Menu pointing secondary size='massive' color='teal'>
             <Menu.Item
