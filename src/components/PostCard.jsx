@@ -1,6 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
-import { Card, Icon, Label, Image, Button } from 'semantic-ui-react'
+import { Card, Icon, Label, Image, Button, Loader } from 'semantic-ui-react'
 import moment from 'moment'
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,9 @@ const PostCard = ({
 post: { body, createdAt, id, username, likeCount, commentCount, likes }
 }) => {
     const { user } = useContext( AuthContext )
+    const [ loading, setIsLoading ] = useState(false)
+
+    if ( loading ) return ( <Loader active inline='centered' /> )
 
     return (
         <Card fluid>
@@ -48,7 +51,7 @@ post: { body, createdAt, id, username, likeCount, commentCount, likes }
                         </Label>
                     </Button>
                 </MyPopup>
-                { user && user.username === username && <DeleteButton postId={id} />}
+                { user && user.username === username && <DeleteButton postId={id} setIsLoading={setIsLoading} />}
             </Card.Content>
         </Card>
     );

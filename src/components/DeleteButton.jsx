@@ -8,12 +8,12 @@ import { MyPopup } from "util/MyPopup";
 import { DELETE_POST_MUTATION, DELETE_COMMENT_MUTATION } from 'util/graphql'
 
 
-const DeleteButton = ({ postId, commentId, callback }) => {
+const DeleteButton = ({ postId, commentId, callback, setIsLoading }) => {
 
     const [ confirmOpen, setConfirmOpen ] = useState(false)
     const mutation = commentId ? DELETE_COMMENT_MUTATION : DELETE_POST_MUTATION
 
-    const [ deleteHandler ] = useMutation(mutation, {
+    const [ deleteHandler, { loading } ] = useMutation(mutation, {
         update(proxy, result){
             setConfirmOpen(false)
             if ( !commentId ) {
@@ -33,6 +33,8 @@ const DeleteButton = ({ postId, commentId, callback }) => {
             console.log('ERROR: ', err.graphQLErrors[0].message)
         }
     })
+
+    setIsLoading && setIsLoading(loading)
 
     return (
         <>

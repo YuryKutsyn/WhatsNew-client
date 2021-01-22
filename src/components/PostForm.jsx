@@ -11,7 +11,7 @@ const PostForm = (props) => {
         body: ''
     })
 
-    const [ createPost, { error } ] = useMutation(CREATE_POST_MUTATION, {
+    const [ createPost, { error, loading } ] = useMutation(CREATE_POST_MUTATION, {
         variables: values,
         update(proxy, result) {
             const data = proxy.readQuery({
@@ -34,7 +34,7 @@ const PostForm = (props) => {
 
     return (
         <>
-        <Form onSubmit={ onSubmit }>
+        <Form onSubmit={ onSubmit } className={ loading ? 'loading' : '' }>
             <h2>Create a post:</h2>
             <Form.Field>
                 <Form.Input
