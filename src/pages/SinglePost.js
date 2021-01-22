@@ -52,7 +52,7 @@ const SinglePost = (props) => {
                     style={{ marginBottom: 12 }}
                     >
                         <Image
-                            src='https://petadvisor.in.ua/blog/wp-content/uploads/2019/09/mops-1.jpg'
+                            src='https://www.clipartkey.com/mpngs/m/201-2014169_poodle-puppy-face-pug-emoji-dog-emoji-pug.png'
                             float='right'
                         />
                     </Grid.Column>
